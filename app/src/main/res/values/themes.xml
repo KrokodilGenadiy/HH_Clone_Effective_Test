@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.HH_Clone_Test" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/basic_black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/grey4</item>
+        <item name="colorOnSecondary">@color/grey3</item>
+        <item name="colorPrimaryVariant">@color/blue</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondaryVariant">@color/red</item>
+        <!-- Color for search only. -->
+        <item name="colorAccent">@color/blue</item>
+        <item name="colorControlActivated">@color/blue</item>
+        <item name="textColorSearchUrl">@color/basic_black</item>
+        <!-- Color for BottomMenu only. -->
+        <item name="colorTertiary">@color/grey3</item>
+        <item name="colorOnTertiary">@color/grey4</item>
+    </style>
+
+    <style name="Theme.HH_Clone_Test" parent="Base.Theme.HH_Clone_Test" />
+</resources>
