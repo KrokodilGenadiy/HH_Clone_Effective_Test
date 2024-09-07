@@ -33,4 +33,9 @@
     <style name="TextAppearance.BottomNavigationView.Active">
         <item name="android:textSize">10sp</item>
     </style>
+
+    <style name="roundedCornersImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
 </resources>

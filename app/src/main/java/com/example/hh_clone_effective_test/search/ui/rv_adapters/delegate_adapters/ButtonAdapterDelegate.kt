@@ -1,11 +1,10 @@
-package com.example.hh_clone_test.search.ui.rv_adapters
+package com.example.hh_clone_effective_test.search.ui.rv_adapters.delegate_adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hh_clone_effective_test.databinding.ButtonItemBinding
 import com.example.hh_clone_test.search.data.entities.ConfirmButton
-import com.example.hh_clone_test.search.data.entities.Vacancy
 import com.example.hh_clone_test.search.ui.rv_adapters.delegate_adapter.DelegateAdapter
 import com.example.hh_clone_test.search.ui.rv_adapters.delegate_adapter.DelegateAdapterItem
 import com.example.hh_clone_test.util.getPluralAddition

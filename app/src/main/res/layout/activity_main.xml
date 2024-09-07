@@ -24,7 +24,7 @@
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:itemTextAppearanceActiveBoldEnabled="false"
-        app:menu="@menu/navigation"
+        app:menu="@menu/navigation_menu"
         style="@style/BottomNavigationView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

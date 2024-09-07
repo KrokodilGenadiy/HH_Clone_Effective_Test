@@ -1,4 +1,4 @@
-package com.example.hh_clone_test.search.ui.rv_adapters
+package com.example.hh_clone_effective_test.search.ui.rv_adapters.base_delegate_adapter
 
 import android.util.SparseArray
 import android.view.ViewGroup

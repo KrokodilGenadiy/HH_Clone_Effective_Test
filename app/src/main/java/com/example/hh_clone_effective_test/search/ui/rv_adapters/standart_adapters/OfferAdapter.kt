@@ -1,4 +1,4 @@
-package com.example.hh_clone_test.search.ui.rv_adapters
+package com.example.hh_clone_effective_test.search.ui.rv_adapters.standart_adapters
 
 import android.view.LayoutInflater
 import android.view.View

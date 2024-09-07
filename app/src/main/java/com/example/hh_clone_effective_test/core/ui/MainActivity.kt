@@ -8,11 +8,15 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.hh_clone_effective_test.R
 import com.example.hh_clone_effective_test.databinding.ActivityMainBinding
+import com.example.hh_clone_effective_test.details.ui.DetailsFragment
+import com.example.hh_clone_effective_test.favorites.ui.FavoritesFragment
+import com.example.hh_clone_effective_test.login.ui.CodeFragment
+import com.example.hh_clone_effective_test.login.ui.LoginFragment
 import com.example.hh_clone_effective_test.search.ui.SearchFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var currentFragmentTag: String = "LOGIN"
+    private var currentFragmentTag: String = "search"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -23,51 +27,63 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(0, systemBars.top, 0, 0)
             insets
         }
-        changeFragment(SearchFragment(),"LOGIN")
-
+        changeFragment(DetailsFragment(), "search")
+        initNavigation()
     }
+
+    private fun checkIfNavigationIsAllowed(): Boolean = currentFragmentTag != "login" && currentFragmentTag != "code"
 
     private fun initNavigation() {
         binding.bottomNavigation.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.search -> {
-                    val tag = "search"
-                    val fragment = checkFragmentExistence(tag)
-                   // changeFragment(fragment ?: HomeFragment(), tag)
-                    true
+                when (it.itemId) {
+                    R.id.search -> {
+                        if (checkIfNavigationIsAllowed()) {
+                            val tag = "search"
+                            val fragment = checkFragmentExistence(tag)
+                            changeFragment(fragment ?: SearchFragment(), tag)
+                            true
+                        } else
+                            false
+                    }
+                    R.id.favorites -> {
+                        if (checkIfNavigationIsAllowed()) {
+                            val tag = "favorites"
+                            val fragment = checkFragmentExistence(tag)
+                            changeFragment(fragment ?: FavoritesFragment(), tag)
+                            true
+                        } else
+                            false
+                    }
+                    R.id.responses -> {
+                        val tag = "responses"
+                        checkIfNavigationIsAllowed()
+                    }
+                    R.id.messages -> {
+                        val tag = "messages"
+                        checkIfNavigationIsAllowed()
+                    }
+                    R.id.profile -> {
+                        val tag = "profile"
+                        checkIfNavigationIsAllowed()
+                    }
+                    else -> false
                 }
-                R.id.favorites -> {
-                    val tag = "favorites"
-                    val fragment = checkFragmentExistence(tag)
-                   // changeFragment(fragment ?: FavoritesFragment(), tag)
-                    true
-                }
-                R.id.responses -> {
-                    val tag = "responses"
-                    val fragment = checkFragmentExistence(tag)
-                   // changeFragment(fragment ?: WatchLaterFragment(), tag)
-                    true
-                }
-                R.id.messages -> {
-                    val tag = "messages"
-                    val fragment = checkFragmentExistence(tag)
-                  //  changeFragment(fragment ?: SettingsFragment(), tag)
-                    true
-                }
-                R.id.profile -> {
-                    val tag = "profile"
-                    val fragment = checkFragmentExistence(tag)
-                  // changeFragment(fragment ?: SettingsFragment(), tag)
-                    true
-                }
-                else -> false
-            }
         }
     }
 
-    private fun openCodeFragment(email: String) {
-        //val fragment = checkFragmentExistence(tag)
-        // changeFragment(fragment ?: SettingsFragment(), tag)
+    fun launchSearchFragment() {
+        val fragment = checkFragmentExistence("search") ?: SearchFragment()
+        changeFragment(fragment , "search")
+        currentFragmentTag = "search"
+    }
+
+    fun launchCodeFragment(email: String) {
+        val bundle = Bundle()
+        bundle.putString("email", email)
+        val fragment = checkFragmentExistence("code") ?: CodeFragment()
+        fragment.arguments = bundle
+        changeFragment(fragment , "code")
+        currentFragmentTag = "code"
     }
 
     private fun checkFragmentExistence(tag: String): Fragment? =

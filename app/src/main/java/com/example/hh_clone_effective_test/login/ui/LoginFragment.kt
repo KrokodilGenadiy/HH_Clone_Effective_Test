@@ -12,6 +12,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import com.example.hh_clone_effective_test.R
+import com.example.hh_clone_effective_test.core.ui.MainActivity
 import com.example.hh_clone_effective_test.databinding.FragmentLoginBinding
 import com.example.hh_clone_test.util.isValidEmail
 
@@ -34,7 +35,7 @@ class LoginFragment : Fragment() {
         with(binding.emailLayout) {
             continueBtn.setOnClickListener {
                 if (loginEt.text.isValidEmail()) {
-                    //navigate
+                    (requireActivity() as MainActivity).launchCodeFragment(loginEt.text.toString())
                 } else {
                     isError = true
                     changeBackground(R.drawable.error_edit_text_background)

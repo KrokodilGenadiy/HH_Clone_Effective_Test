@@ -34,4 +34,14 @@
     <string name="more_vacancies">Еще 143 вакансии</string>
     <string name="total_vacancies">145 вакансий</string>
     <string name="sort_text">По соответствию</string>
+    <string name="ui_ux_designer">UI/UX Designer</string>
+    <string name="Not_exact_salary">Уровень дохода не указан</string>
+    <string name="required_experience">Требуемый опыт: от 1 года до 3 лет</string>
+    <string name="workload">Полная занятость, полный день</string>
+    <string name="people_responded">147 человек уже откликнулись</string>
+    <string name="now_looking_details">2 человека сейчас смотрят</string>
+    <string name="address">Минск, улица Бирюзова, 4/5</string>
+    <string name="your_tasks">Ваши задачи</string>
+    <string name="ask_your_questions">Задайте вопрос работодателю</string>
+    <string name="questions_description">Он получит его с откликом на вакансию</string>
 </resources>
