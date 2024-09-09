@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.google.devtools.ksp)
 }
 
 android {
@@ -45,20 +46,38 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(project(":details:di"))
+
+    //Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-    implementation(libs.okhttp.logging.interceptor)
-
     // Koin
     implementation(libs.koin.android)
 
-    // Gson
-    implementation(libs.gson)
+    // Navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
+
+    //Core
+    implementation(project(":core:utils"))
+    implementation(project(":core:ui"))
+    implementation(project(":search:ui"))
+    implementation(project(":search:di"))
+    implementation(project(":login:ui"))
+    implementation(project(":details:ui"))
+    implementation(project(":favorites:ui"))
+    implementation(project(":favorites:di"))
+    implementation(project(":profile:ui"))
+    implementation(project(":replies:ui"))
+    implementation(project(":messages:ui"))
+
+    //Room
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx.v260)
 
 
 }

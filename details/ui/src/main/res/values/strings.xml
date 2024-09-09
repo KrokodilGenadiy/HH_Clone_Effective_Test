@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_exact_salary">Уровень дохода не указан</string>
+    <string name="quote_for_reply">Резюме для отклика</string>
+    <string name="add_reply">Добавить сопроводительное</string>
+    <string name="enter_your_reply">Ваше сопроводительное письмо</string>
+</resources>

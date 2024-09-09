@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/basic_black"
+    android:paddingHorizontal="@dimen/dp_16"
+    tools:context="com.example.ui.FavoritesFragment">
+
+
+    <TextView
+        android:id="@+id/favorites_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_32"
+        android:fontFamily="@font/sf_pro_display_bold"
+        android:text="@string/designer_job_title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/number_of_vacancies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:text="@string/designer_job_title"
+        android:textColor="@color/grey3"
+        android:textSize="@dimen/font_14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favorites_title"
+        tools:text="1 Вакансия"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favorites_vacancy_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:layout_marginTop="@dimen/dp_16"
+        app:layout_constraintTop_toBottomOf="@id/number_of_vacancies"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/vacancy_item"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

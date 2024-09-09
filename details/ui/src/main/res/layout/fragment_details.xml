@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/basic_black"
+    android:fillViewport="true"
+    tools:context="com.example.ui.DetailsFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_vacancy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/basic_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_go_back">
+
+            <ImageView
+                android:id="@+id/ivFavorites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:src="@drawable/ic_empty_heart" />
+
+            <ImageView
+                android:id="@+id/ivShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:src="@drawable/ic_share" />
+
+            <ImageView
+                android:id="@+id/ivEye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:src="@drawable/ic_eye" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="@dimen/dp_16"
+            tools:context="com.example.ui.DetailsFragment">
+
+            <TextView
+                android:id="@+id/job_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:text="@string/designer_job_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_22"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/details_salary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/no_exact_salary"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/job_title" />
+
+            <TextView
+                android:id="@+id/required_experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/required_experience"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/details_salary" />
+
+            <TextView
+                android:id="@+id/workload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_6"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/workload"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/required_experience" />
+
+            <LinearLayout
+                android:id="@+id/details_people_info_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_24"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/workload">
+
+                <FrameLayout
+                    android:id="@+id/people_applied_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:layout_weight="1"
+                    android:background="@drawable/darker_green_backgorund_shape">
+
+                    <TextView
+                        android:id="@+id/people_applied"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:layout_marginBottom="@dimen/dp_8"
+                        android:layout_marginEnd="@dimen/dp_32"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@string/people_responded"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_14" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_16"
+                        android:layout_height="@dimen/dp_16"
+                        android:layout_gravity="end|top"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:layout_marginEnd="@dimen/dp_8"
+                        android:background="@drawable/green_circle_shape"
+                        android:padding="@dimen/dp_4"
+                        android:src="@drawable/ic_white_person" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/now_looking_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/darker_green_backgorund_shape">
+
+                    <TextView
+                        android:id="@+id/now_looking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:layout_marginBottom="@dimen/dp_8"
+                        android:layout_marginEnd="@dimen/dp_32"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:text="@string/now_looking_details"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_14" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_16"
+                        android:layout_height="@dimen/dp_16"
+                        android:layout_gravity="end|top"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:layout_marginEnd="@dimen/dp_8"
+                        android:background="@drawable/green_circle_shape"
+                        android:paddingHorizontal="@dimen/dp_2"
+                        android:paddingVertical="@dimen/dp_4"
+                        android:src="@drawable/ic_small_eye" />
+                </FrameLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/job_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/dp_24"
+                android:background="@drawable/grey_background_shape"
+                app:layout_constraintTop_toBottomOf="@+id/details_people_info_container"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+
+                <TextView
+                    android:id="@+id/company_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="@string/example_company_name"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:textSize="@dimen/font_16"
+                    android:layout_marginTop="@dimen/dp_12"
+                    android:layout_marginStart="@dimen/dp_16"
+                    app:drawableEndCompat="@drawable/ic_checkmark" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:src="@drawable/map_placeholder"
+                    android:scaleType="centerCrop"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_8"
+                    app:shapeAppearanceOverlay="@style/roundedCornersImageView" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="@string/address"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:textSize="@dimen/font_14"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_12"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/address"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textSize="@dimen/font_14"
+                android:layout_marginTop="@dimen/dp_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/job_container"/>
+
+            <TextView
+                android:id="@+id/your_tasks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:text="@string/your_tasks"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description" />
+
+            <TextView
+                android:id="@+id/responsibilities_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/address"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textSize="@dimen/font_14"
+                android:layout_marginTop="@dimen/dp_8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/your_tasks"/>
+
+            <TextView
+                android:id="@+id/your_questions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/ask_your_questions"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:textSize="@dimen/font_14"
+                android:layout_marginTop="@dimen/dp_32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/responsibilities_description"/>
+
+            <TextView
+                android:id="@+id/your_questions_descriptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/grey3"
+                android:text="@string/questions_description"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:textSize="@dimen/font_14"
+                android:layout_marginTop="@dimen/dp_8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/your_questions"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/details_questions_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/your_questions_descriptions"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginTop="@dimen/dp_16"
+                tools:listitem="@layout/question_item"/>
+            <Button
+                android:id="@+id/reply_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/green_button_background"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:text="@string/reply"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:layout_marginVertical="@dimen/dp_8"
+                app:layout_constraintTop_toBottomOf="@id/details_questions_recycler"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="@dimen/font_16" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+</ScrollView>
