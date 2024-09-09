@@ -21,6 +21,7 @@
     <string name="now_looking">Сейчас просматривает 1 человек</string>
     <string name="now_looking_sample">Сейчас просматривает %$s человек</string>
     <string name="designer_job_title">UI/UX Designer</string>
+    <string name="favorites_title">Избранное</string>
     <string name="reply">Откликнуться</string>
     <string name="Minsk">Минск</string>
     <string name="example_company_name">Мобирикс</string>

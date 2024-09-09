@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_32"
         android:fontFamily="@font/sf_pro_display_bold"
-        android:text="@string/designer_job_title"
+        android:text="@string/favorites_title"
         android:textColor="@color/white"
         android:textSize="@dimen/font_20"
         app:layout_constraintStart_toStartOf="parent"
