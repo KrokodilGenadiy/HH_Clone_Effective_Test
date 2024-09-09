@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.entities.ApiResponse
 import com.example.data.entities.Vacancy
-import com.example.data.FavoritesInteractor
+import com.example.data.favorites.FavoritesInteractor
 import com.example.domain.SearchInteractor
 import com.example.utils.Resource
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -1,4 +1,4 @@
-package com.example.data
+package com.example.data.favorites
 
 import com.example.data.database.AppDatabase
 import com.example.data.entities.Vacancy

@@ -35,11 +35,18 @@ class ButtonAdapterDelegate(private val clickListener: OnItemClickListener) : De
         }
 
         fun bind(confirmButton: ConfirmButton) {
-            binding.root.text = "Еще ${confirmButton.listSize} "+confirmButton.listSize.getPluralAddition("вакансий","вакансии","вакансия")
+            binding.root.text = "Еще ${confirmButton.listSize} "+confirmButton.listSize.getPluralAddition(PPCWORD_VACANCY,PCWORD_VACANCY,NCWORD_VACANCY)
         }
     }
 
     fun interface OnItemClickListener {
         fun click()
+    }
+
+    companion object {
+        private const val PPCWORD_VACANCY = "вакансий"
+        private const val PCWORD_VACANCY = "вакансии"
+        private const val NCWORD_VACANCY = "вакансия"
+
     }
 }

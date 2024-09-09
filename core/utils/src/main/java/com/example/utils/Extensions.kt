@@ -24,3 +24,27 @@ fun Int.getPluralAddition(pPCword: String, pCword: String, nCWord: String): Stri
         else -> pPCword
     }
 }
+
+fun Int.getMonthName(): String {
+    return when (this) {
+        in 1..12 -> {
+            when (this) {
+                1 -> "января"
+                2 -> "февраля"
+                3 -> "марта"
+                4 -> "апреля"
+                5 -> "мая"
+                6 -> "июня"
+                7 -> "июля"
+                8 -> "aвгуста"
+                9 -> "cентября"
+                10 -> "октября"
+                11 -> "ноября"
+                12 -> "декабря"
+                else -> "Invalid month number"
+            }
+        }
+        else -> "Invalid month number"
+    }
+}
+

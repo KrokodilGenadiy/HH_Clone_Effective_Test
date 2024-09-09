@@ -2,9 +2,8 @@ package com.example.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.FavoritesInteractor
+import com.example.data.favorites.FavoritesInteractor
 import com.example.data.entities.Vacancy
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class DetailsViewModel(private val favoritesInteractor: FavoritesInteractor): ViewModel() {

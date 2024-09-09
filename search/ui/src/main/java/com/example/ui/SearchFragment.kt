@@ -68,14 +68,18 @@ class SearchFragment : Fragment() {
         setUpVacancyAdapter()
         setUpOfferAdapter()
         viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.apiResponseFlow.collectLatest { response: ApiResponse ->
-                    if (response.vacancies.isNotEmpty()) {
-                        vacancies_list = response.vacancies
-                        val list: MutableList<DelegateAdapterItem> =
-                            vacancies_list.subList(0, 3).toMutableList()
-                        list.add(ConfirmButton(response.vacancies.size - 3))
-                        mainAdapter.submitList(list)
+                    if (mainAdapter.currentList.size > 4) {
+                        mainAdapter.submitList(vacancies_list)
+                    } else {
+                        if (response.vacancies.isNotEmpty()) {
+                            vacancies_list = response.vacancies
+                            val list: MutableList<DelegateAdapterItem> =
+                                vacancies_list.subList(0, 3).toMutableList()
+                            list.add(ConfirmButton(response.vacancies.size - 3))
+                            mainAdapter.submitList(list)
+                        }
                     }
                     if (response.offers.isNotEmpty())
                         offerAdapter.submitList(response.offers)

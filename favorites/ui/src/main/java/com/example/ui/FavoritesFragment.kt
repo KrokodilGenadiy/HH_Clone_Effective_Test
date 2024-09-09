@@ -20,6 +20,7 @@ import com.example.ui.base_delegate_adapter.MainCompositeAdapter
 import com.example.ui.databinding.FragmentFavoritesBinding
 import com.example.ui.vacancy_adapter.VacancyAdapterDelegate
 import com.example.ui.vacancy_adapter.VacancyItemDecorator
+import com.example.utils.getPluralAddition
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -58,10 +59,17 @@ class FavoritesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpVacancyAdapter()
         viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.vacanciesFlow.collectLatest { vacancies: List<Vacancy> ->
-                    binding.numberOfVacancies.text = "${vacancies.size}+ вакансия"
+                    viewModel.getData()
+                    binding.numberOfVacancies.text =
+                        "${vacancies.size} " + vacancies.size.getPluralAddition(
+                            "вакансий",
+                            "вакансии",
+                            "вакансия"
+                        )
                     mainAdapter.submitList(vacancies)
+                    vacancyList.clear()
                     vacancyList.addAll(vacancies)
                 }
             }
@@ -80,6 +88,12 @@ class FavoritesFragment : Fragment() {
         viewModel.deleteFromFavorites(vacancy)
         vacancyList.remove(vacancy)
         mainAdapter.submitList(vacancyList.toList())
+        binding.numberOfVacancies.text =
+            "${vacancyList.size} " + vacancyList.size.getPluralAddition(
+                "вакансий",
+                "вакансии",
+                "вакансия"
+            )
     }
 
     override fun onDestroy() {
